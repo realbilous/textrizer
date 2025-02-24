@@ -1,9 +1,7 @@
 from pathlib import Path
 from typing import Dict, Any, Optional
 import torch
-import librosa
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
-import soundfile as sf
 
 from .base_transcriber import BaseTranscriber
 
@@ -111,3 +109,10 @@ class WhisperTranscriber(BaseTranscriber):
         }
         
         return metadata 
+    
+    def generate_subtitles(self, audio_path: str | Path) -> str:
+        """
+        Generate subtitles for an audio file
+        """
+        raise NotImplementedError("Subtitles generation is not implemented for Whisper")
+
